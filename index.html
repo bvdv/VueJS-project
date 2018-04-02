@@ -10,20 +10,29 @@
 
 <body>
 <div id="app">
-  <button v-on:mouseenter = "incr">Click On!</button>
+  <button v-on:click = "incr">Click On!</button>
   <p>{{ counter }}</p>
+  <p v-on:mousemove="MouseCoordinates">Coordinates {{ x }} / {{ y }}</p>
   
 </div>
 
 <script>
+
+
   new Vue({
     el: '#app',
     data: {
-      counter: 0
+      counter: 0,
+      x: 0,
+      y: 0
   },
   methods: {
-    incr: function () {
+    incr: function() {
       this.counter++;
+    },
+    MouseCoordinates: function(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
     }
   }
 });
