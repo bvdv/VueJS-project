@@ -10,8 +10,8 @@
 
 <body>
 <div id="app">
-  <h1 v-once>{{ title }}</h1>
-  <p>{{ say() }}</p>
+  <button v-on:mouseenter = "incr">Click On!</button>
+  <p>{{ counter }}</p>
   
 </div>
 
@@ -19,12 +19,11 @@
   new Vue({
     el: '#app',
     data: {
-    title: 'Hi from data'
+      counter: 0
   },
-    methods: {
-      say: function () {
-        this.title = 'Title from methods';
-        return this.title;
+  methods: {
+    incr: function () {
+      this.counter++;
     }
   }
 });
