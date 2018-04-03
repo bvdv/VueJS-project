@@ -10,9 +10,10 @@
 
 <body>
 <div id="app">
-  <button v-on:click = "incr">Click On!</button>
-  <p>{{ counter }}</p>
-  <p v-on:mousemove="MouseCoordinates">Coordinates {{ x }} / {{ y }}</p>
+  <button v-on:click = "i++">Counter++!</button>
+  <button v-on:click = "i--">Counter--!</button>
+  <p>Counter: {{ i }}</p>
+  <p>Counter: {{ r() }}</p>
   
 </div>
 
@@ -22,18 +23,15 @@
   new Vue({
     el: '#app',
     data: {
-      counter: 0,
-      x: 0,
-      y: 0
+      i: 0,
+      
   },
   methods: {
-    incr: function() {
-      this.counter++;
-    },
-    MouseCoordinates: function(event) {
-      this.x = event.clientX;
-      this.y = event.clientY;
+    r() {
+      return this.i > 5 ? 'Gr 5' : 'les 5';
     }
+    
+    
   }
 });
 
