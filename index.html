@@ -10,10 +10,11 @@
 
 <body>
 <div id="app">
-  <button v-on:click = "i++">Counter++!</button>
-  <button v-on:click = "i--">Counter--!</button>
-  <p>Counter: {{ i }}</p>
-  <p>Counter: {{ r() }}</p>
+  <button v-on:click = "int++">Counter++!</button>
+  <button v-on:click = "int--">Counter--!</button>
+  <button v-on:click = "secCounter++">secCounter</button>
+  <p>Counter: {{ int }} | {{ secCounter }} </p>
+  <p>Counter: {{ res() }} | {{ output }} </p>
   
 </div>
 
@@ -23,15 +24,29 @@
   new Vue({
     el: '#app',
     data: {
-      i: 0,
+      int: 0,
+      secCounter: 0,
       
   },
-  methods: {
-    r() {
-      return this.i > 5 ? 'Gr 5' : 'les 5';
+  computed: {
+    output: function() {
+      console.log('computed');
+      return this.int > 5 ? 'Gr 5' : 'les 5';
     }
-    
-    
+  },
+  watch: {
+    int: function(value) {
+      var vm = this;
+      setTimeout(function() {
+         vm.int = 0;
+      }, 2000)
+    }
+  },
+  methods: {
+    res: function() {
+      console.log('methods');
+      return this.int > 5 ? 'Gr 5' : 'les 5';
+    }
   }
 });
 
