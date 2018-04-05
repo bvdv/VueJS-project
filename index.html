@@ -12,32 +12,23 @@
 <body>
 <div id="app">
 
-  <div class="demo" @click="attRed = !attRed" :class="divClasses"></div>
-  <div class="demo" @click="attBlu = !attBlu" :class="{blue: attBlu}"></div>
+  <div class="demo" :style="{backgroundColor: color}" ></div>
   <div class="demo"></div>
+  <div class="demo"></div>
+  <hr>
+  <input type="text" v-model="color">
 </div>
+
+
 
 
 <script>
   new Vue({
     el: '#app',
     data: {
-      attRed: false,
-      attBlu: false,
+      color: 'green'
     },
-    computed: {
-      divClasses: function() {
-        return {
-          red:  this.attRed,
-          blue: !this.attRed
-        };
-      }
-    }
-
-
-
-
-
+    
 
   });
 
