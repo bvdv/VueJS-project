@@ -3,52 +3,36 @@
 <head>
   <meta charset="utf-8">
 	<title>VueJS</title>
-
+<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 <script src="vue.js"></script>
+
  	
 </head>
 
 <body>
 <div id="app">
-  <button v-on:click = "int++">Counter++!</button>
-  <button v-on:click = "int--">Counter--!</button>
-  <button v-on:click = "secCounter++">secCounter</button>
-  <p>Counter: {{ int }} | {{ secCounter }} </p>
-  <p>Counter: {{ res() }} | {{ output }} </p>
-  
+
+  <div class="demo" @click="attRed = !attRed" :class="{red: attRed}"></div>
+  <div class="demo" @click="attBlu = !attBlu" :class="{blue: attBlu}"></div>
+  <div class="demo"></div>
 </div>
 
+
 <script>
-
-
   new Vue({
     el: '#app',
     data: {
-      int: 0,
-      secCounter: 0,
-      
-  },
-  computed: {
-    output: function() {
-      console.log('computed');
-      return this.int > 5 ? 'Gr 5' : 'les 5';
+      attRed: false,
+      attBlu: false,
+
     }
-  },
-  watch: {
-    int: function(value) {
-      var vm = this;
-      setTimeout(function() {
-         vm.int = 0;
-      }, 2000)
-    }
-  },
-  methods: {
-    res: function() {
-      console.log('methods');
-      return this.int > 5 ? 'Gr 5' : 'les 5';
-    }
-  }
-});
+
+
+
+
+
+
+  });
 
 
 </script>
