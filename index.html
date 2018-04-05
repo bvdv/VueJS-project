@@ -13,10 +13,11 @@
 <div id="app">
 
   <div class="demo" :style="{backgroundColor: color}" ></div>
-  <div class="demo"></div>
+  <div class="demo" :style="MyStyle"></div>
   <div class="demo"></div>
   <hr>
   <input type="text" v-model="color">
+  <input type="text" v-model="width">
 </div>
 
 
@@ -26,8 +27,17 @@
   new Vue({
     el: '#app',
     data: {
-      color: 'green'
+      color: 'green',
+      width: 100
     },
+    computed: {
+      MyStyle: function() {
+        return {
+          backgroundColor: this.color,
+          width: this.width + 'px' 
+        };
+      }
+    }
     
 
   });
