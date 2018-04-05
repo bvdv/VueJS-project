@@ -12,7 +12,7 @@
 <body>
 <div id="app">
 
-  <div class="demo" @click="attRed = !attRed" :class="{red: attRed}"></div>
+  <div class="demo" @click="attRed = !attRed" :class="divClasses"></div>
   <div class="demo" @click="attBlu = !attBlu" :class="{blue: attBlu}"></div>
   <div class="demo"></div>
 </div>
@@ -24,7 +24,14 @@
     data: {
       attRed: false,
       attBlu: false,
-
+    },
+    computed: {
+      divClasses: function() {
+        return {
+          red:  this.attRed,
+          blue: !this.attRed
+        };
+      }
     }
 
 
