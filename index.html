@@ -11,14 +11,12 @@
 
 <body>
 <div id="app">
-  <p v-if="show">1. Name  </p>
-  <p v-else>2. Second Name</p>
-  <template v-if="show">
-    <h1 v-if="show">City</h1>
-    <p>Post</p>
-  </template>
-  <p>Adress</p>
-  <button @click="show = !show">Switch</button>
+  <ul>
+    <li v-for="(ing, i) in ingridients"> {{ ing }} {{ i }} </li>
+    <li v-for="p in persons">
+      <span v-for="value in p"> {{ value }} </span>
+    </li>
+  </ul>
 </div>
 
 
@@ -28,7 +26,11 @@
   new Vue({
     el: '#app',
     data: {
-      show: true,
+      ingridients: ['meat', 'fruit', 'cookies'],
+      persons: [
+        {name: 'Max', age: 27, color: 'red'},
+        {name: 'Ann', age: 'unk', color: 'black'}
+      ]
       
     },
 
