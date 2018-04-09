@@ -11,12 +11,12 @@
 
 <body>
 <div id="app">
-  <ul>
-    <li v-for="(ing, i) in ingridients"> {{ ing }} {{ i }} </li>
-    <li v-for="p in persons">
-      <span v-for="value in p"> {{ value }} </span>
-    </li>
-  </ul>
+  {{ title }}
+</div>
+
+<div id="app2">
+  {{ title }}
+  <button @click="onClick">Click!</button>
 </div>
 
 

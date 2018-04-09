@@ -1,14 +1,20 @@
 
 
-new Vue({
+var vm1 = new Vue({
     el: '#app',
     data: {
-      ingridients: ['meat', 'fruit', 'cookies'],
-      persons: [
-        {name: 'Max', age: 27, color: 'red', weight: 300 },
-        {name: 'Ann', age: 'unk', color: 'black', weight: 101 }
-      ]
-      
+      title: 'Title1'
     },
+});
 
-  });
+var vm2 = new Vue({
+  el: '#app2',
+  data: {
+    title: 'Title2'
+  },
+  methods: {
+    onClick: function() {
+      vm1.title = 'vm1.revers';
+    }
+  }
+})
