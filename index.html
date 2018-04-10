@@ -11,9 +11,13 @@
 
 <body>
 <div id="app">
-  {{ title }}
+  <h2>{{ title }}</h2>
+  <button @click="show" ref="myB">
+    Show Par
+  </button>
+  <p v-if="showPar">This not always vis</p>
 </div>
-
+<br>
 <div id="app2">
   {{ title }}
   <button @click="onClick">Click!</button>
