@@ -1,39 +1,34 @@
 
 
 var vm1 = new Vue({
-    el: '#app',
-    data: {
-      title: 'Title1'
-    },
-    methods: {
-      show: function() {
-        this.showPar = true;
-        this.updateTitle('The VueJS Obj(Updated)');
-        console.log(this.$refs)
-      },
-      updateTitle: function(title) {
-        this.title = title;
-      },
-    }
-});
-
-vm1.newProp = 'new';
-//console.log(vm1.$data.title);
-
-/*
-setTimeout( function() {
-  vm1.title = 'Title1';
-}, 3000);
-*/
-
-var vm2 = new Vue({
-  el: '#app2',
+  el: '#app',
   data: {
-    title: 'Title2'
+    title: 'The VueJS Instance',
+    showParagraph: false
   },
   methods: {
-    onClick: function() {
-      vm1.title = 'vm1.revers';
+    show: function() {
+      this.showParagraph = !this.showParagraph;
+      this.updateTitle('The VueJS Instance (Updated)');
+      this.$refs.myButton.innerText = 'test';
+      this.$refs.heading.innerText = 'test';
+    },
+    updateTitle: function(title) {
+      this.title = title;
+    }
+  },
+  computed: {
+    lowercaseTitle: function() {
+      return this.title.toLowerCase();
+    }
+  },
+  watch: {
+    title: function(value) {
+      //alert('Title changed, new value: ' + value);
     }
   }
-})
+});
+
+Vue.component('hello', {
+  template: '<h1>Hello!</h1>'
+});
