@@ -2,6 +2,15 @@
 
 > Vue.js project
 
+<p>Self-educational VueJS project based on online courses and online resources.</p>
+
+<strong>Goals:</strong> 
+<ul>
+<li>To learn to develop using VueJS, Webpack and etc..</li>
+<li>Creating SPA</li>
+<li>Creating VueJS + Laravel project</li>
+</ul>
+
 ## Build Setup
 
 ``` bash
